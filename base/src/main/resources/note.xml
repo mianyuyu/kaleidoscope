@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd
+               http://www.springframework.org/schema/tx
+               http://www.springframework.org/schema/tx/spring-tx.xsd
+               http://www.springframework.org/schema/aop
+               http://www.springframework.org/schema/aop/spring-aop.xsd">
+    
+    <!-- 20160519 尝试使用 
+	org.springframework.context.support.ReloadableResourceBundleMessageSource代替
+    org.springframework.beans.factory.config.PropertyPlaceholderConfigurer 
+            来解决初始化资源文件的不可更新的问题
+    1.在不重启服务的情况下，如果资源文件发生变化可以重新加载
+    2.资源文件可以定时加载
+     -->
+    
+        
+</beans>

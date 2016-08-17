@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd
+               http://www.springframework.org/schema/tx
+               http://www.springframework.org/schema/tx/spring-tx.xsd
+               http://www.springframework.org/schema/aop
+               http://www.springframework.org/schema/aop/spring-aop.xsd">
+               
+    <bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:env.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!--
+    <bean id="reloadablePropertyConfigurer"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:env.properties</value>
+			</list>
+		</property>
+	</bean>
+	-->
+	<bean id="jdbcDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url" value="${jdbc.url}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="jdbcDataSource"></property>
+	</bean>
+
+	<!--
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.bruce.frontsys.mappers"></property>
+	</bean> -->
+
+	<!-- 事务管理器配置, jdbc单数据源事务 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="jdbcDataSource" />
+	</bean>
+
+	<!-- 使用annotation定义事务 - <tx:annotation-driven transaction-manager="transactionManager" 
+		proxy-target-class="false" /> -->
+	<bean name="txDefinition" class="org.springframework.transaction.support.DefaultTransactionDefinition">
+		<property name="propagationBehaviorName" value="PROPAGATION_REQUIRED" />
+	</bean>
+	
+	<bean id="frameBeanFactory" class="com.bruce.base.framework.FrameBeanFactory" />
+	
+	<bean name="transaction" class="com.bruce.base.transaction.Transaction" scope="prototype"/>
+	
+	<bean id="txFactory" class="com.bruce.base.transaction.TxFactory">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="txDefinition" ref="txDefinition"/>
+	</bean>
+
+</beans>
