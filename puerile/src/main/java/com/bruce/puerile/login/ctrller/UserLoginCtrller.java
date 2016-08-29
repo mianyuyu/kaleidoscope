@@ -27,20 +27,29 @@ public class UserLoginCtrller {
             ModelAndView mav,
             BindingResult result) {
         logger.debug("get request Login Page..");
-        if (validateSession(loginModel)) {
+        boolean passFlag = validateSession(loginModel);
 
-        } else {
-
-        }
-
-        if (sessionModel.validateOnlineUser()) {
-            logger.debug("request login page with seesion Obj..");
-            mav.setViewName("login");
+        if (sessionModel.validateOnlineUser()) {//validate already login
+            logger.debug("request login page with session Obj..");
+            if (passFlag) {
+                //remainder whether user want to shift account
+                mav.setViewName("demo");
+            } else {
+                //remainder incorrect user info
+                mav.setViewName("test");
+            }
             loginModel.setUsername(loginModel.getUsername());
             mav.addObject("command", loginModel);
         } else {
-            logger.debug("request login page without seesion Obj..");
-            mav.setViewName("main_menu");
+            logger.debug("request login page without session Obj..");
+            if (passFlag) {
+                OnlineUserModel onlineUser = new OnlineUserModel();
+                onlineUser.setUsername(loginModel.getUsername());
+                sessionModel.setOnlineUserModel(onlineUser);
+                mav.setViewName("main_menu");
+            } else {
+                mav.setViewName("login");
+            }
         }
         return mav;
     }
@@ -112,7 +121,16 @@ public class UserLoginCtrller {
      * @return
      */
     public boolean validateSession(Object obj) {
-        return obj == null ? false : true;
+        if (obj == null) {
+            return false;
+        }
+        if (obj instanceof LoginModel) {
+            LoginModel loginModel = (LoginModel) obj;
+            if ("bruce".equals(loginModel.getUsername()) && "112233".equals(loginModel.getPassword())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean validateLoginInfo (LoginModel loginModel) {
