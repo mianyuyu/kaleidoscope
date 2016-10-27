@@ -4,6 +4,7 @@ import com.bruce.base.framework.FrameLogger;
 import com.bruce.puerile.common.model.SessionModel;
 import com.bruce.puerile.login.model.LoginModel;
 import com.bruce.puerile.login.model.OnlineUserModel;
+import com.bruce.puerile.login.model.PageMessageModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +49,12 @@ public class UserLoginCtrller {
                 sessionModel.setOnlineUserModel(onlineUser);
                 mav.setViewName("main_menu");
             } else {
+                String pageMessage = "incorrect username or password";
+
+                PageMessageModel messageModel = new PageMessageModel();
+                messageModel.ss = "haha";
+                messageModel.addMessage(pageMessage);
+                mav.addObject("message", messageModel);
                 mav.setViewName("login");
             }
         }
@@ -91,6 +98,7 @@ public class UserLoginCtrller {
             logger.debug("login fail..");
             loginModel.setUsername("");
             loginModel.setPassword("");
+            mav.setViewName("login");
         }
 
         return mav;
@@ -141,45 +149,4 @@ public class UserLoginCtrller {
         }
     }
 
-    /*
-    @RequestMapping(method = RequestMethod.GET)
-    public String get() {
-        logger.info("get method process");
-        return "main_menu";
-    }
-
-
-    @RequestMapping(path = "/first", method = RequestMethod.GET)
-     public String login() {
-
-        logger.info("login method process");
-        return "main_menu";
-    }
-
-    @RequestMapping(path = "/second", method = RequestMethod.GET)
-    public String setupForm() {
-
-        logger.info("setupForm method process");
-        return "main_menu";
-    }
-
-    @RequestMapping(path = "/pets/{petId}", method = RequestMethod.GET)
-    public String findPet(@PathVariable String petId, @MatrixVariable(required = false, name="q", pathVar="petId") String q) {
-        logger.info("findPet method process");
-        logger.info(petId);
-        logger.info(q);
-        // petId == 42
-        // q == 11
-        return "main_menu";
-    }
-    */
-/*
-    @RequestMapping(path = "/test", method = RequestMethod.POST)
-    public String test(@RequestBody String userName, ModelMap modelMap) {
-
-        logger.info("username:" + userName);
-        logger.info("login servlet process");
-        return "test";
-    }
-    */
 }

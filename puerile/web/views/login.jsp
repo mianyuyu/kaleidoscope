@@ -18,5 +18,6 @@ Please login<br>
  <label>密  码:<form:password path="password" placeholder="密码" tabindex="2"></form:password></label><br/>
     <input type="submit" class="submit" id="loginBt" tabindex="3" value="登录"/>
 </form:form>
+    <span><form:errors path="*"/></span>
 </body>
 </html>

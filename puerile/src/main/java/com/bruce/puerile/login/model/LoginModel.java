@@ -3,7 +3,7 @@ package com.bruce.puerile.login.model;
 /**
  * Created by bruce on 2016/8/1.
  */
-public class LoginModel {
+public class LoginModel extends PageMessageModel {
     public String username;
     public String password;
     public String getUsername() {
