@@ -42,9 +42,27 @@ div.main_panel {
     height: 600px;
     display: block;/*display: block; 旋转需要定义这个，否则旋转后会自动恢复成原状*/
     position: absolute;/*position: absolute; 绝对位置，可定为到外层容器的任意位置*/
-    top: 0px; /*position: absolute 的情况定位在父容器中的位置*/
-    left: 10px; /*position: absolute 的情况定位在父容器中的位置*/
-    margin-left: 30%;
+    /*top: 0px; */ /*position: absolute 的情况定位在父容器中的位置*/
+    /*left: 100px; */ /*position: absolut;e 的情况定位在父容器中的位置*/
+    top: 0px;
+    left: 50%;
+    margin-left: -200px;
     background-color: darksalmon;
+}
 
+span.main_panel_title_bar {
+    width: 400px;
+    position: relative;
+    top: 40px; /* position: relative和top等偏移样式一起使用时候需要注意
+    本元素是参照同级别的前一元素定位的，并且定位不按照前一元素偏移后的位置，而是参照前一元素偏移未偏移的位置*/
+    font-weight: bold;
+    font-size: 20px;
+    background-color: cadetblue;
+}
+
+div.main_panel_content {
+    width: 400px;
+    position: relative;
+    top: 60px; /*以父亲容器为参照*/
+    background-color: cornflowerblue;
 }
