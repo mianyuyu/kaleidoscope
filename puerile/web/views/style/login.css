@@ -66,3 +66,7 @@ div.main_panel_content {
     top: 60px; /*以父亲容器为参照*/
     background-color: cornflowerblue;
 }
+
+div.form-group {
+    height: 50px;
+}
