@@ -5,11 +5,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>login page</title>
-    <script src="views/basic/script/bootstrap.min.js"></script>
-    <script src="views/basic/script/npm.js"></script>
-    <link rel="stylesheet" href="views/basic/style/bootstrap.min.css" />
-    <link rel="stylesheet" href="views/basic/style/bootstrap-theme.css" />
-    <link rel="stylesheet" href="views/basic/style/bootstrap-theme.min.css" />
+    <script src="views/basic/js/bootstrap.min.js"></script>
+    <script src="views/basic/js/npm.js"></script>
+    <link rel="stylesheet" href="views/basic/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="views/basic/csss/bootstrap-theme.css" />
+    <link rel="stylesheet" href="views/basic/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="views/style/login.css" />
 </head>
 <body>
