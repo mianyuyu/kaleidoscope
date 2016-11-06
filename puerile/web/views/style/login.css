@@ -67,6 +67,12 @@ div.main_panel_content {
     background-color: cornflowerblue;
 }
 
+div.container {
+    width: 400px;
+    height: 50px;
+}
+/*
 div.form-group {
     height: 50px;
 }
+*/
