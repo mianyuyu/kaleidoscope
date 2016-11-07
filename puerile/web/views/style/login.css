@@ -11,17 +11,17 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     margin:0;
     height:100%;
     font-family:Arial, sans-serif;
-    font-size:12px;
     line-height:100%;
 }
 
 
 body {
-    width:100%;
-    height:100%;
-    text-align:center;
-    color:black;
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    color: black;
     background-color: cadetblue;
+    background-image: url(../img/background.jpg);
 }
 
 div.body {
@@ -69,10 +69,23 @@ div.main_panel_content {
 
 div.container {
     width: 400px;
+    height: 500px;
+}
+
+div.form_element {
     height: 50px;
 }
-/*
-div.form-group {
-    height: 50px;
+
+div.form_text_element {
+    height: 70px;
 }
-*/
+
+div.form_select_element {
+    height: 40px;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 60px;
+}
