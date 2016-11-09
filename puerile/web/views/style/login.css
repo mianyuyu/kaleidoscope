@@ -72,6 +72,10 @@ div.container {
     height: 500px;
 }
 
+h2.form-signin-heading {
+    font-weight: 700;
+}
+
 div.form_element {
     height: 50px;
 }

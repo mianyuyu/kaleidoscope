@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,12 +16,12 @@
 <body>
 <div class="body">
     <div class="container">
-        <form class="form-signin" role="form">
+        <form:form action="/puerile/login" method="post" class="form-signin" role="form">
             <div class="form_element">
                 <h2 class="form-signin-heading">Please sign in</h2>
             </div>
             <div class="form_text_element">
-                <input type="email" class="form-control" placeholder="Email address" required autofocus>
+                <input type="username" class="form-control" placeholder="Your account" required autofocus>
                 <input type="password" class="form-control" placeholder="Password" required>
             </div>
             <div class="form_select_element">
@@ -33,7 +34,7 @@
             <div class="form_element">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             </div>
-        </form>
+        </form:form>
     </div>
 </div>
 </body>
