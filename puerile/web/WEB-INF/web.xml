@@ -21,7 +21,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>puerile</servlet-name>
-        <url-pattern>/puerile/*</url-pattern>
+        <!--<url-pattern>/puerile/*</url-pattern>-->
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <!-- servlet use context-param to import location of configuration must configure this Listener -->
