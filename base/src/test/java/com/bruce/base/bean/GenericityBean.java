@@ -39,7 +39,7 @@ public class GenericityBean {
         System.out.println(pt.getActualTypeArguments()[0]);
 
         Type type = pt.getActualTypeArguments()[0];
-        System.out.println("aa"+type.getTypeName());
+//        System.out.println("aa"+type.getTypeName());
 
     }
 
