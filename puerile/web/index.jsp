@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>login page</title>
+    <!--
+    <script src="/js/jquery-2.2.4.min.js"></script>
+    <script src="/basic/js/bootstrap.min.js"></script>
+    <script src="/basic/js/npm.js"></script>-->
+    <link rel="stylesheet" href="/basic/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="/basic/css/bootstrap-theme.min.css" />-->
+    <link rel="stylesheet" href="/css/login.css" />
 </head>
 <body>
     <!--如果它以斜杠开头,那么它就是一个环境相关的路径.将根据赋给应用程序的URI的前缀进行解释,

@@ -22,7 +22,7 @@ public class UserLoginCtrller {
 
     private FrameLogger logger = FrameLogger.getLogger(this.getClass());
 
-    @RequestMapping(method = RequestMethod.GET)
+//    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView requestLoginPage (@ModelAttribute("command") LoginModel loginModel,
                                           SessionModel sessionModel,
             ModelAndView mav,
